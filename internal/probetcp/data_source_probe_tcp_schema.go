@@ -14,7 +14,7 @@ func dataSourceprobeTCPSchema() map[string]*schema.Schema {
 	}
 
 	probeTCPSchema["control_ip"] = &schema.Schema{
-		Type:     schema.TypeBool,
+		Type:     schema.TypeString,
 		Computed: true,
 	}
 
