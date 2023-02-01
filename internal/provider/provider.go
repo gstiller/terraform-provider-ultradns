@@ -5,7 +5,7 @@ import (
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	"github.com/ultradns/terraform-provider-ultradns/internal/accgroup"
+	"github.com/ultradns/terraform-provider-ultradns/internal/dirgroup"
 	"github.com/ultradns/terraform-provider-ultradns/internal/dirpool"
 	"github.com/ultradns/terraform-provider-ultradns/internal/probedns"
 	"github.com/ultradns/terraform-provider-ultradns/internal/probehttp"
@@ -43,7 +43,7 @@ func Provider() *schema.Provider {
 			"ultradns_probe_ping":     probeping.ResourceProbePING(),
 			"ultradns_probe_dns":      probedns.ResourceProbeDNS(),
 			"ultradns_probe_tcp":      probetcp.ResourceProbeTCP(),
-			"ultradns_accgroup_geoip": accgroup.ResourceGeoIPGroup(),
+			"ultradns_dirgroup_geoip": dirgroup.ResourceGeoIP(),
 		},
 		DataSourcesMap: map[string]*schema.Resource{
 			"ultradns_zone":           zone.DataSourceZone(),
@@ -58,7 +58,7 @@ func Provider() *schema.Provider {
 			"ultradns_probe_ping":     probeping.DataSourceprobePING(),
 			"ultradns_probe_dns":      probedns.DataSourceprobeDNS(),
 			"ultradns_probe_tcp":      probetcp.DataSourceprobeTCP(),
-			"ultradns_accgroup_geoip": accgroup.DataSourceGeoIPGroup(),
+			"ultradns_dirgroup_geoip": dirgroup.DataSourceGeoIP(),
 		},
 	}
 }
