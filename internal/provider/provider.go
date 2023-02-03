@@ -43,7 +43,7 @@ func Provider() *schema.Provider {
 			"ultradns_probe_ping":     probeping.ResourceProbePING(),
 			"ultradns_probe_dns":      probedns.ResourceProbeDNS(),
 			"ultradns_probe_tcp":      probetcp.ResourceProbeTCP(),
-			"ultradns_dirgroup_geoip": dirgroup.ResourceGeoIP(),
+			"ultradns_dirgroup_geoip": dirgroup.ResourceGeoIPGroup(),
 		},
 		DataSourcesMap: map[string]*schema.Resource{
 			"ultradns_zone":           zone.DataSourceZone(),
@@ -58,7 +58,7 @@ func Provider() *schema.Provider {
 			"ultradns_probe_ping":     probeping.DataSourceprobePING(),
 			"ultradns_probe_dns":      probedns.DataSourceprobeDNS(),
 			"ultradns_probe_tcp":      probetcp.DataSourceprobeTCP(),
-			"ultradns_dirgroup_geoip": dirgroup.DataSourceGeoIP(),
+			"ultradns_dirgroup_geoip": dirgroup.DataSourceGeoIPGroup(),
 		},
 	}
 }

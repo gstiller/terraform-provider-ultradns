@@ -21,4 +21,9 @@ examples/.terraform.*
 examples/terraform.*
 examples/*.sh
 
+#MacOS .DS_Store
+*.DS_Store
 
+#Temporary development files
+Makefile
+terraform-provider-ultradns_v2.0.0
