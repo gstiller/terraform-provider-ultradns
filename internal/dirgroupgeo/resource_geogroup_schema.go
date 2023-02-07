@@ -1,26 +1,29 @@
-package dirgroup
+package dirgroupgeo
 
 import (
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
 
-func dataSourceGeoIPSchema() map[string]*schema.Schema {
+func resourceGeoGroupSchema() map[string]*schema.Schema {
 	return map[string]*schema.Schema{
 		"name": {
 			Type:     schema.TypeString,
 			Required: true,
+			ForceNew: true,
 		},
 		"account_name": {
 			Type:     schema.TypeString,
-			Computed: true,
+			Required: true,
 		},
 		"description": {
 			Type:     schema.TypeString,
-			Computed: true,
+			Optional: true,
 		},
 		"codes": {
 			Type:     schema.TypeSet,
-			Computed: true,
+			Required: true,
+			MinItems: 1,
+			Set:      schema.HashString,
 			Elem: &schema.Schema{
 				Type: schema.TypeString,
 			},

@@ -93,11 +93,11 @@ func GetProbeIDFromURI(uri string) string {
 	return splitURI(uri, "probes/")
 }
 
-func GetGeoIPIdFromURI(uri string) string {
+func GetGeoIdFromURI(uri string) string {
 	return splitURI(uri, "geo/")
 }
 
-func GetSourceIPIdFromURI(uri string) string {
+func GetIPIdFromURI(uri string) string {
 	return splitURI(uri, "ip/")
 }
 

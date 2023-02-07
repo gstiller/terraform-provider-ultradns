@@ -2,17 +2,17 @@ package service
 
 import (
 	"github.com/ultradns/ultradns-go-sdk/pkg/client"
-	"github.com/ultradns/ultradns-go-sdk/pkg/dirgroup/geoip"
+	"github.com/ultradns/ultradns-go-sdk/pkg/dirgroup/geo"
 	"github.com/ultradns/ultradns-go-sdk/pkg/probe"
 	"github.com/ultradns/ultradns-go-sdk/pkg/record"
 	"github.com/ultradns/ultradns-go-sdk/pkg/zone"
 )
 
 type Service struct {
-	ZoneService       *zone.Service
-	RecordService     *record.Service
-	ProbeService      *probe.Service
-	GroupGeoIPService *geoip.Service
+	ZoneService        *zone.Service
+	RecordService      *record.Service
+	ProbeService       *probe.Service
+	DirGroupGeoService *geo.Service
 }
 
 func NewService(c *client.Client) (*Service, error) {
@@ -32,7 +32,7 @@ func NewService(c *client.Client) (*Service, error) {
 		return nil, err
 	}
 
-	if service.GroupGeoIPService, err = geoip.Get(c); err != nil {
+	if service.DirGroupGeoService, err = geo.Get(c); err != nil {
 		return nil, err
 	}
 
