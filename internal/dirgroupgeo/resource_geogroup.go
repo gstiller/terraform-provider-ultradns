@@ -2,7 +2,6 @@ package dirgroupgeo
 
 import (
 	"context"
-	"log"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
@@ -50,9 +49,9 @@ func resourceGeoGroupRead(ctx context.Context, rd *schema.ResourceData, meta int
 	services := meta.(*service.Service)
 	geoGroupData := newGeoGroup(rd)
 
-	//	if val, ok := rd.GetOk("account_name"); ok {
-	//		accountName = val.(string)
-	//	}
+	if val, ok := rd.GetOk("account_name"); ok {
+		accountName = val.(string)
+	}
 
 	_, geoGroup, err := services.DirGroupGeoService.ReadDirGroupGeo(geoGroupData)
 	if err != nil {
@@ -69,14 +68,9 @@ func resourceGeoGroupRead(ctx context.Context, rd *schema.ResourceData, meta int
 }
 
 func resourceGeoGroupUpdate(ctx context.Context, rd *schema.ResourceData, meta interface{}) diag.Diagnostics {
-	//var geoGroupName string
 
 	services := meta.(*service.Service)
 	geoGroupData := newGeoGroup(rd)
-
-	//if val, ok := rd.GetOk("name"); ok {
-	//	geoGroupName = val.(string)
-	//}
 
 	_, err := services.DirGroupGeoService.UpdateDirGroupGeo(geoGroupData)
 
@@ -89,15 +83,10 @@ func resourceGeoGroupUpdate(ctx context.Context, rd *schema.ResourceData, meta i
 
 func resourceGeoGroupDelete(ctx context.Context, rd *schema.ResourceData, meta interface{}) diag.Diagnostics {
 	var diags diag.Diagnostics
-	//var accountName string
 
 	services := meta.(*service.Service)
 	geoGroupData := newGeoGroup(rd)
-	//geoGroupName := rd.Id()
 
-	//if val, ok := rd.GetOk("account_name"); ok {
-	//	accountName = val.(string)
-	//}
 	_, err := services.DirGroupGeoService.DeleteDirGroupGeo(geoGroupData)
 
 	if err != nil {
@@ -124,7 +113,6 @@ func newGeoGroup(rd *schema.ResourceData) *geo.DirGroupGeo {
 		geoData.Description = val.(string)
 	}
 	if val, ok := rd.GetOk("codes"); ok {
-		log.Printf("val: %v, %T", val, val)
 		geoCodesData := val.(*schema.Set).List()
 		geoData.Codes = make([]string, len(geoCodesData))
 		for i, geoCode := range geoCodesData {
