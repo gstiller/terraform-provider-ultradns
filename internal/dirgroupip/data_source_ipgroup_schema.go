@@ -12,7 +12,7 @@ func dataSourceIPSchema() map[string]*schema.Schema {
 		},
 		"account_name": {
 			Type:     schema.TypeString,
-			Computed: true,
+			Required: true,
 		},
 		"description": {
 			Type:     schema.TypeString,
