@@ -1,6 +1,6 @@
 variables:
   MAIN_VERSION: "v2.0.0"
-  BIN_NAME: "terraform-provider-ultradns_"
+  BIN_NAME: "terraform-provider-ultradns"
   
 default:
   image: golang:1.20.1-bullseye
