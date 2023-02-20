@@ -1,0 +1,14 @@
+variables:
+  MAIN_VERSION: "v2.0.0"
+  BIN_NAME: "terraform-provider-ultradns_"
+  
+default:
+  image: golang:1.20.1-bullseye
+
+terraform-build:
+  tags:
+    - docker
+  script: 
+    - go build -o ${BIN_NAME}_${MAIN_VERSION}~ftg-${CI_JOB_ID}
+    - ls -la
+    - echo "curl -v -H 'X-JFrog-Art-Api:<artifactory_token>' -X PUT 'https://artifactory.sie.sony.com/artifactory/terraform-provider-ultradns/' -T ${BIN_NAME}_${MAIN_VERSION}~ftg-${CI_JOB_ID}"
