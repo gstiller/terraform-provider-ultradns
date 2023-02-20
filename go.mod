@@ -2,10 +2,12 @@ module github.com/ultradns/terraform-provider-ultradns
 
 go 1.19
 
+replace github.com/ultradns/ultradns-go-sdk => gitlab.gaikai.org/Gyorgy.Stiller/ultradns-go-sdk v1.5.0
+
 require (
 	github.com/hashicorp/go-cty v1.4.1-0.20200414143053-d3edf31b6320
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.17.0
-	github.com/ultradns/ultradns-go-sdk v1.4.0-20221107152238-f3f1d1d
+	github.com/ultradns/ultradns-go-sdk v1.0.0-202201070925-6692cb0.0.20221107151939-f3f1d1d3cbd1
 )
 
 require (
