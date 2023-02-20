@@ -11,4 +11,4 @@ terraform-build:
   script: 
     - go build -o ${BIN_NAME}_${MAIN_VERSION}~ftg-${CI_JOB_ID}
     - ls -la
-    - echo "curl -v -H 'X-JFrog-Art-Api:<artifactory_token>' -X PUT 'https://artifactory.sie.sony.com/artifactory/terraform-provider-ultradns/' -T ${BIN_NAME}_${MAIN_VERSION}~ftg-${CI_JOB_ID}"
+    - curl -v -H "X-JFrog-Art-Api:${ARTIFACTORY_TOKEN}" -X PUT "https://artifactory.sie.sony.com/artifactory/cgei-terraform-dev-remote/" -T ${BIN_NAME}_${MAIN_VERSION}~ftg-${CI_JOB_ID}
