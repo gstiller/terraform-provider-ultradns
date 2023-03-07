@@ -29,7 +29,7 @@ The following arguments are supported:
 * `name` - (Required) (String) Name of the geoIP group.
 * `account_name` - (Required) (String) 	Name of the account. It must be provided, but it can also be sourced from the `ULTRADNS_ACCOUNT` environment variable.
 * `codes` - (Required) (String List) The codes for the geographical territories. [Valid GEO codes](#valid-geo-codes).
-* `description` - (Optional) (String) 
+* `description` - (Optional) (String)
 ## Import
 
 GeoIP group can be imported by combining their `name` and `account_name`.<br/>
