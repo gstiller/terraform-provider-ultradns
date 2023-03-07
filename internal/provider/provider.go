@@ -11,6 +11,7 @@ import (
 	"github.com/ultradns/terraform-provider-ultradns/internal/probedns"
 	"github.com/ultradns/terraform-provider-ultradns/internal/probehttp"
 	"github.com/ultradns/terraform-provider-ultradns/internal/probeping"
+	"github.com/ultradns/terraform-provider-ultradns/internal/probetcp"
 	"github.com/ultradns/terraform-provider-ultradns/internal/rdpool"
 	"github.com/ultradns/terraform-provider-ultradns/internal/record"
 	"github.com/ultradns/terraform-provider-ultradns/internal/sbpool"
@@ -42,6 +43,7 @@ func Provider() *schema.Provider {
 			"ultradns_probe_http":   probehttp.ResourceProbeHTTP(),
 			"ultradns_probe_ping":   probeping.ResourceProbePING(),
 			"ultradns_probe_dns":    probedns.ResourceProbeDNS(),
+			"ultradns_probe_tcp":    probetcp.ResourceProbeTCP(),
 			"ultradns_dirgroup_ip":  dirgroupip.ResourceIPGroup(),
 			"ultradns_dirgroup_geo": dirgroupgeo.ResourceGeoGroup(),
 		},
@@ -57,6 +59,7 @@ func Provider() *schema.Provider {
 			"ultradns_probe_http":   probehttp.DataSourceprobeHTTP(),
 			"ultradns_probe_ping":   probeping.DataSourceprobePING(),
 			"ultradns_probe_dns":    probedns.DataSourceprobeDNS(),
+			"ultradns_probe_tcp":    probetcp.DataSourceprobeTCP(),
 			"ultradns_dirgroup_ip":  dirgroupip.DataSourceIPGroup(),
 			"ultradns_dirgroup_geo": dirgroupgeo.DataSourceGeoGroup(),
 		},
