@@ -27,9 +27,9 @@ builds:
 archives:
 - format: zip
   name_template: '{{ .ProjectName }}_0.1.0_{{ .Os }}_{{ .Arch }}'
-checksum:
-  name_template: '{{ .ProjectName }}_0.1.0_SHA256SUMS'
-  algorithm: sha256
+# checksum:
+#   name_template: '{{ .ProjectName }}_0.1.0_SHA256SUMS'
+#   algorithm: sha256
 # Since we are only putting this on the filesystem we don't need GPG signatures like upstream does. More details can be
 # found here: https://learn.hashicorp.com/tutorials/terraform/provider-release-publish?in=terraform/providers
 #signs:
