@@ -1,7 +1,9 @@
 ---
 include:
   - project: cgei/build-platform/includes
-    file: go.yml
+    file:
+      - go.yml
+      - misc/binary-publish.yml
 
 variables:
   GITLAB_TOKEN: "${CI_JOB_TOKEN}"
