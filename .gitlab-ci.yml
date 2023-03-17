@@ -1,3 +1,4 @@
+
 #variables:
 #  MAIN_VERSION: "v2.0.0"
 #  BIN_NAME: "terraform-provider-ultradns"
@@ -8,6 +9,9 @@ include:
   - project: cgei/build-platform/includes
     file: go.yml
 
+variables:
+  GITLAB_TOKEN: "${CI_JOB_TOKEN}"
+  FTG_CI_GO_RELEASER_ENABLED: "true"
 
 #terraform-build:
 #  tags:
