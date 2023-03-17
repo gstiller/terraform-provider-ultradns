@@ -1,22 +1,12 @@
-
-#variables:
-#  MAIN_VERSION: "v2.0.0"
-#  BIN_NAME: "terraform-provider-ultradns"
-#
-#default:
-#  image: golang:1.20.1-bullseye
+---
 include:
+  - project: cgei/tetris/kube-terraform-modules
+    file: kube-terraform-modules/ci/publish-provider.yaml
+  - project: cgei/tetris/downstream/golang
+    file: includes/goreleaser.yml
   - project: cgei/build-platform/includes
-    file: go.yml
+    file: misc/binary-publish.yml
 
 variables:
   GITLAB_TOKEN: "${CI_JOB_TOKEN}"
   FTG_CI_GO_RELEASER_ENABLED: "true"
-
-#terraform-build:
-#  tags:
-#    - docker
-#  script:
-#    - go build -o ${BIN_NAME}_${MAIN_VERSION}~ftg-${CI_JOB_ID}
-#    - ls -la
-#    - curl -v -u "gstiller:${ARTIFACTORY_TOKEN}" -X PUT "https://artifactory.sie.sony.com/artifactory/cgei-generic-dev-local/" -T ${BIN_NAME}_${MAIN_VERSION}~ftg-${CI_JOB_ID}
