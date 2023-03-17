@@ -27,9 +27,9 @@ builds:
 archives:
 - format: zip
   name_template: '{{ .ProjectName }}_0.1.0_{{ .Os }}_{{ .Arch }}'
-# checksum:
-#   name_template: '{{ .ProjectName }}_0.1.0_SHA256SUMS'
-#   algorithm: sha256
+checksum:
+  name_template: '{{ .ProjectName }}_0.1.0_SHA256SUMS'
+  algorithm: sha256
 # Since we are only putting this on the filesystem we don't need GPG signatures like upstream does. More details can be
 # found here: https://learn.hashicorp.com/tutorials/terraform/provider-release-publish?in=terraform/providers
 #signs:
@@ -44,10 +44,24 @@ archives:
 #      - "${signature}"
 #      - "--detach-sign"
 #      - "${artifact}"
+gitlab_urls:
+  api: https://gitlab.gaikai.org/api/v4/
+  download: https://gitlab.gaikai.org
+  # makes sure goreleaser can use CI_JOB_TOKEN
+  use_job_token: true
+  # CI_JOB_TOKEN can't add attachments to releases, we need to use the
+  # package registry
+  use_package_registry: true
+# The below settings need to be changed for your project.
 release:
+  gitlab:
+    owner: Gyorgy.Stiller
+    name: terraform-provider-ultradn
+
+# release:
   # If you want to manually examine the release before its live, uncomment this line:
   # draft: true
-  disable: true
+  # disable: true
 changelog:
   skip: true
 
