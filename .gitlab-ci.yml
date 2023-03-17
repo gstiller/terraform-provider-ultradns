@@ -1,10 +1,7 @@
 ---
 include:
-  - local: ci/publish-provider.yaml
-  - project: cgei/tetris/downstream/golang
-    file: includes/goreleaser.yml
   - project: cgei/build-platform/includes
-    file: misc/binary-publish.yml
+    file: go.yml
 
 variables:
   GITLAB_TOKEN: "${CI_JOB_TOKEN}"
