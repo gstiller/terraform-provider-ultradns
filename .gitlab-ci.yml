@@ -1,7 +1,6 @@
 ---
 include:
-  - project: cgei/tetris/kube-terraform-modules
-    file: ci/publish-provider.yaml
+  - local: ci/publish-provider.yaml
   - project: cgei/tetris/downstream/golang
     file: includes/goreleaser.yml
   - project: cgei/build-platform/includes
