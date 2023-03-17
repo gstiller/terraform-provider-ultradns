@@ -5,7 +5,7 @@
 #default:
 #  image: golang:1.20.1-bullseye
 include:
-- project: cgei/build-platform/includes
+  - project: cgei/build-platform/includes
     file: go.yml
 
 
